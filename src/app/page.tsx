@@ -221,7 +221,7 @@ export default function Page() {
 
           {/* Botón de descarga */}
           <a
-            href="/cv/CV_Nicolás_Friz.pdf"
+            href="/cv/nicolas-friz.pdf"
             download
             className="inline-flex items-center gap-2 rounded-xl border border-white/20 
              backdrop-blur-xl bg-red-600/60 hover:bg-red-500/60 
