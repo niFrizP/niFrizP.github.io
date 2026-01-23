@@ -62,9 +62,9 @@ export default function RightHeroPanel() {
                         <div className="flex flex-wrap gap-2">
                             <BrandLogo company="Abc" domain="abc.cl" />
                             <BrandLogo company="Duoc UC" domain="duoc.cl" />
-                            <BrandLogo company="TreePower" domain="treepower.cl" />
-                            <BrandLogo company="TEQMED" domain="teqmed.cl" />
                             <BrandLogo company="IBM" domain="ibm.com" />
+                            <BrandLogo company="TEQMED" domain="teqmed.cl" />
+                            <BrandLogo company="TreePower" domain="treepower.cl" />
                         </div>
                     </div>
                 </div>
