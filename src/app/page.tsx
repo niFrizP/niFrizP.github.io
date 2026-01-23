@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ProjectsSection from "@/components/ProjectsSection";
-import CertificatesSection from "@/components/CertificatesSection";
 
 import { Mail, ChevronRight, Linkedin, Github } from "lucide-react";
 import CompanyLogo from "@/components/CompanyLogo";
@@ -145,9 +144,6 @@ export default function Page() {
 
       {/* Proyectos destacados (landing) */}
       <ProjectsSection />
-
-      {/* Certificaciones */}
-      <CertificatesSection />
 
 
       {/* Experiencia */}
