@@ -45,40 +45,26 @@ export default function RightHeroPanel() {
                        px-3 py-1 text-sm font-medium text-emerald-700 dark:text-emerald-100"
                     >
                         <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-                        Disponible para proyectos
+                        Disponibilidad inmediata
                     </div>
 
                     {/* resumen */}
                     <div className="mt-4 space-y-2 text-sm text-zinc-800 dark:text-zinc-100">
-                        <p>· Concepción / Cauquenes, Chile ·</p>
-                        <p>· Híbrido / Remoto / Presencial ·</p>
-                    </div>
-
-                    {/* chips */}
-                    <div className="mt-4 flex flex-wrap gap-2 text-xs">
-                        <span
-                            className="rounded-full border border-zinc-200/70 dark:border-zinc-700/70
-                         px-2 py-1 text-zinc-800 dark:text-zinc-100"
-                        >
-                            +{new Date().getFullYear() - 2021} años exp.
-                        </span>
-                        <span
-                            className="rounded-full border border-zinc-200/70 dark:border-zinc-700/70
-                         px-2 py-1 text-zinc-800 dark:text-zinc-100"
-                        >
-                            Disponibilidad inmediata
-                        </span>
+                        <p>· Cauquenes, Maule, Chile ·</p>
+                        <p>· Presencial / Híbrido / Remoto ·</p>
                     </div>
 
                     {/* logos */}
                     <div className="mt-5">
                         <p className="mb-2 text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                            He colaborado con:
+                            Colaborado con:
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            <BrandLogo company="IBM" domain="ibm.com" />
-                            <BrandLogo company="TEQMED" domain="teqmed.cl" />
+                            <BrandLogo company="Abc" domain="abc.cl" />
                             <BrandLogo company="Duoc UC" domain="duoc.cl" />
+                            <BrandLogo company="TreePower" domain="treepower.cl" />
+                            <BrandLogo company="TEQMED" domain="teqmed.cl" />
+                            <BrandLogo company="IBM" domain="ibm.com" />
                         </div>
                     </div>
                 </div>

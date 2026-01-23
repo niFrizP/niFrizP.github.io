@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 const links = [
   { href: "/#about", label: "Sobre mí" },
   { href: "/#projects", label: "Proyectos" },
+  { href: "/#certificates", label: "Certificados" },
   { href: "/#experience", label: "Experiencia" },
   { href: "/#cv", label: "CV" },
   { href: "/#contact", label: "Contacto" },

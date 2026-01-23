@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ProjectsSection from "@/components/ProjectsSection";
+import CertificatesSection from "@/components/CertificatesSection";
+
 import { Mail, ChevronRight, Linkedin, Github } from "lucide-react";
 import CompanyLogo from "@/components/CompanyLogo";
 import HeroAnimated from "@/components/HeroAnimated";
@@ -32,7 +34,6 @@ export default function Page() {
   const pdfPath = "/cv/nicolas-friz.pdf";
   const downloadPath = "/cv/CV_Nicolás_Friz.pdf";
 
-  // Detectar iOS en cliente (incluye iPad en Safari sobre mac con touch)
   const [isIos, setIsIos] = useState(false);
   useEffect(() => {
     const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
@@ -52,7 +53,7 @@ export default function Page() {
       {/* About */}
       <section id="about" className="mx-auto max-w-6xl px-4 py-12 mt-20 md:scroll-mt-10">
 
-        <h2 className="text-2xl font-semibold tracking-tight">¿Quién soy?</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Sobre mi</h2>
 
         <div className="mt-4 grid gap-8 md:grid-cols-12 md:items-center">
           {/* Cuadro/imagen a la izquierda */}
@@ -69,26 +70,56 @@ export default function Page() {
           {/* Texto a la derecha */}
           <div className="md:col-span-7 bg-blurred-card p-6 rounded-2xl border theme-border backdrop-blur-3xl ">
             <p className="theme-text">
-              Soy ingeniero informático con una sólida trayectoria en el desarrollo de soluciones digitales modernas y optimizadas.
-              Mi enfoque se centra en <strong>TypeScript</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong> y <strong>Laravel</strong>, donde aplico principios de diseño, arquitectura estructurada y metodologías ágiles.
+              Ingeniero informático con una sólida trayectoria en el desarrollo de soluciones de software.
+              Mi enfoque se centra en el desarrollo de software, diseño y gestión de base de datos y desarrollo web con lenguajes y tecnologias como <strong>PHP</strong>, <strong>JavaScript</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong> y <strong>Laravel</strong>.
+              Donde aplico principios de diseño, arquitectura estructurada y metodologías ágiles.
             </p>
             <p className="mt-3 theme-text">
               También cuento con experiencia en la integración de CMS como WordPress y APIs personalizadas para complementar soluciones. Me apasiona construir productos de principio a fin,
-              abarcando desde el levantamiento de requisitos hasta el despliegue.
-              Me motiva trabajar y aportar en proyectos en equipo donde el diseño y la ingeniería se complementan.
+              abarcando desde el levantamiento de requisitos hasta el despliegue e implantación de estas.
+              Me motiva trabajar y aportar en proyectos en equipo donde el diseño y las tecnologias se complementan.
             </p>
 
             {/* Stack breve visible */}
             <div className="mt-4 flex flex-wrap gap-2 text-xs">
+              {/* Lenguajes */}
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">PHP</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">JavaScript</span>
               <span className="border theme-border rounded-full px-3 py-1 theme-text">TypeScript</span>
+
+              {/* Frameworks */}
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">Express.js</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">Vue.js</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">Node.js</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">Laravel</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">FastAPI</span>
+
+
+              {/* Frontend */}
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">React</span>
               <span className="border theme-border rounded-full px-3 py-1 theme-text">Next.js</span>
               <span className="border theme-border rounded-full px-3 py-1 theme-text">Tailwind CSS</span>
-              <span className="border theme-border rounded-full px-3 py-1 theme-text">Laravel</span>
-              <span className="border theme-border rounded-full px-3 py-1 theme-text">WordPress</span>
-              <span className="border theme-border rounded-full px-3 py-1 theme-text">PHP</span>
-              <span className="border theme-border rounded-full px-3 py-1 theme-text">FastAPI</span>
+
+              {/* Cloud */}
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">AWS</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">GCP</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">Vercel</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">Railway</span>
+
+              {/* Bases de datos */}
               <span className="border theme-border rounded-full px-3 py-1 theme-text">MySQL</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">PostgreSQL</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">Oracle DB</span>
               <span className="border theme-border rounded-full px-3 py-1 theme-text">PL/SQL</span>
+
+              {/* CMS */}
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">WordPress</span>
+
+              {/* Herramientas & Metodologías */}
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">GIT</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">Figma</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">SCRUM</span>
+              <span className="border theme-border rounded-full px-3 py-1 theme-text">Agile</span>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -114,6 +145,10 @@ export default function Page() {
 
       {/* Proyectos destacados (landing) */}
       <ProjectsSection />
+
+      {/* Certificaciones */}
+      <CertificatesSection />
+
 
       {/* Experiencia */}
       <section id="experience" className="mx-auto max-w-6xl px-4 py-20">
