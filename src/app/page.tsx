@@ -165,7 +165,7 @@ export default function Page() {
                 <p className="text-sm theme-text">Concepción, Bio Bio, Chile · Actualidad</p>
               </div>
               <strong>
-                <p className="text-sm theme-text mt-2 md:mt-0">Oct 2025 – Actualidad · 1 mes</p>
+                <p className="text-sm theme-text mt-2 md:mt-0">Feb 2025 – Dic 2025 · 10 meses</p>
               </strong>
             </div>
             <p className="mt-3 theme-text">
@@ -256,7 +256,7 @@ export default function Page() {
 
           {/* Botón de descarga */}
           <a
-            href="/cv/CV_Nicolás_Friz.pdf"
+            href="/cv/nicolas-friz.pdf"
             download
             className="inline-flex items-center gap-2 rounded-xl border border-white/20 
              backdrop-blur-xl bg-red-600/60 hover:bg-red-500/60 
