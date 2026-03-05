@@ -141,15 +141,14 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Carrusel de experiencias (tutorías y proyectos sociales) */}
-        <ExperienceCarousel />
-
       </section>
 
 
       {/* Proyectos destacados (landing) */}
       <ProjectsSection />
 
+      {/* Carrusel de experiencias (tutorías y proyectos sociales) */}
+      <ExperienceCarousel />
       {/* Botón 'Ver más' que redirige a la galería */}
       <div className="mt-6 flex justify-center">
         <Link

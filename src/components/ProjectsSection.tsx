@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,6 +12,8 @@ export default function ProjectsSection() {
 
   // número de proyectos visibles inicialmente
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
+
+  const router = useRouter();
 
   return (
     <section
@@ -33,9 +35,17 @@ export default function ProjectsSection() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={`/projects/${p.slug}`} className="block">
+              <div
+                role="link"
+                tabIndex={0}
+                onClick={() => router.push(`/projects/${p.slug}`)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") router.push(`/projects/${p.slug}`);
+                }}
+                className="block cursor-pointer"
+              >
                 <ProjectCard project={p} />
-              </Link>
+              </div>
             </motion.div>
           ))}
         </AnimatePresence>
