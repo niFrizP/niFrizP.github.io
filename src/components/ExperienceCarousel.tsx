@@ -5,25 +5,25 @@ import { useEffect, useRef, useState } from "react";
 
 const slides = [
     {
-        src: "/experience/inclusteam.svg",
-        alt: "Inclusteam - Talleres 3D",
-        caption: "Inclusteam — Talleres de impresión 3D",
+        src: "/gallery/Inclusteam2.jpg",
+        alt: "Inclusteam - Grupo",
+        caption: "Cierre del Proyecto Inclusteam - Año 2023",
     },
     {
-        src: "/experience/taller-3d.svg",
-        alt: "Taller 3D",
-        caption: "Talleres educativos y demostraciones",
+        src: "/gallery/3D_1.jpg",
+        alt: "Capacitación 3D 2022",
+        caption: "Taller de Impresion 3D para niñas, niños y jóvenes pertenecientes al centro comunitario Agüita de la Perdiz - Año 2022",
     },
     {
-        src: "/experience/proyecto-social.svg",
-        alt: "Proyecto social",
-        caption: "Proyectos sociales y voluntariado",
+        src: "/gallery/picto.jpg",
+        alt: "Proyecto PICTO",
+        caption: "Equipo proyecto PICTO - Año 2023",
     },
     {
-        src: "/experience/mentoring.svg",
-        alt: "Mentoría",
-        caption: "Mentoría y tutorías",
-    },
+        src: "/gallery/chilesp.jpg",
+        alt: "Capacitación en Impresión 3D Chile España",
+        caption: "Capacitación en Impresión 3D a estudiantes de la Escuela Chile España - Año 2023",
+    }
 ];
 
 export default function ExperienceCarousel() {
@@ -54,49 +54,52 @@ export default function ExperienceCarousel() {
     }
 
     return (
-        <div className="mt-8">
-            <div className="relative rounded-2xl overflow-hidden border theme-border bg-blurred-card p-4">
-                <div className="w-full h-64 sm:h-72 md:h-80 grid place-items-center">
+        <div className="mt-8 mx-auto w-full max-w-6xl px-4">
+            <div className="relative rounded-2xl overflow-hidden border theme-border bg-blurred-card backdrop-blur-3xl">
+                <button
+                    aria-label="Anterior"
+                    onClick={() => goTo((index - 1 + slides.length) % slides.length)}
+                    className="absolute left-2 top-[38%] z-10 -translate-y-1/2 rounded-full px-3 py-2 bg-black/35 backdrop-blur-sm hover:bg-black/50 sm:left-3"
+                >
+                    ‹
+                </button>
+                <button
+                    aria-label="Siguiente"
+                    onClick={() => goTo((index + 1) % slides.length)}
+                    className="absolute right-2 top-[38%] z-10 -translate-y-1/2 rounded-full px-3 py-2 bg-black/35 backdrop-blur-sm hover:bg-black/50 sm:right-3"
+                >
+                    ›
+                </button>
+
+                <div className="w-full h-44 sm:h-52 md:h-64 lg:h-72 grid place-items-center">
                     <Image
                         src={slides[index].src}
                         alt={slides[index].alt}
                         width={1200}
                         height={800}
-                        className="object-contain max-h-full"
+                        className="object-contain max-h-full w-full -translate-y-5 sm:-translate-y-3 md:-translate-y-28"
                         unoptimized
                     />
                 </div>
 
-                <div className="mt-3 flex items-center justify-between">
-                    <p className="text-sm theme-text">{slides[index].caption}</p>
+                <div className="px-3 pb-2 pt-2 sm:px-4 sm:pb-3">
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 backdrop-blur-md sm:p-3">
+                        <div className="flex flex-col items-center gap-1">
+                            <p className="text-sm leading-relaxed theme-text min-h-10 w-full text-center font-bold mt-1">{slides[index].caption}</p>
+                        </div>
 
-                    <div className="flex items-center gap-2">
-                        <button
-                            aria-label="Anterior"
-                            onClick={() => goTo((index - 1 + slides.length) % slides.length)}
-                            className="rounded-md px-3 py-2 bg-white/5 hover:bg-white/10"
-                        >
-                            ‹
-                        </button>
-                        <button
-                            aria-label="Siguiente"
-                            onClick={() => goTo((index + 1) % slides.length)}
-                            className="rounded-md px-3 py-2 bg-white/5 hover:bg-white/10"
-                        >
-                            ›
-                        </button>
                     </div>
-                </div>
-
-                <div className="mt-3 flex gap-2 justify-center">
-                    {slides.map((_, i) => (
-                        <button
-                            key={i}
-                            aria-label={`Ir a slide ${i + 1}`}
-                            onClick={() => goTo(i)}
-                            className={`w-2 h-2 rounded-full ${i === index ? "bg-white" : "bg-white/30"}`}
-                        />
-                    ))}
+                    
+                        <div className="mt-1 flex gap-2 justify-center">
+                            {slides.map((_, i) => (
+                                <button
+                                    key={i}
+                                    aria-label={`Ir a slide ${i + 1}`}
+                                    onClick={() => goTo(i)}
+                                    className={`w-2 h-2 rounded-full ${i === index ? "bg-white" : "bg-white/30"}`}
+                                />
+                            ))}
+                        </div>
                 </div>
             </div>
         </div>

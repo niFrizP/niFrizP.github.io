@@ -2,16 +2,49 @@
 
 import Image from "next/image";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const images = [
-    "/gallery/img1.svg",
-    "/gallery/img2.svg",
-    "/gallery/img3.svg",
-    "/gallery/img4.svg",
-    "/gallery/img5.svg",
-    "/gallery/img6.svg",
+    {
+        src: "/gallery/Inclusteam1.png",
+        alt: "Inclusteam - Talleres 3D",
+        caption: "Proyecto Inclusteam - Tutorias y talleres de Impresion 3D para estudiantes de educacion basica",
+    },
+    {
+        src: "/gallery/Inclusteam2.jpg",
+        alt: "Inclusteam - Grupo",
+        caption: "Cierre del Proyecto Inclusteam - Ano 2023",
+    },
+    {
+        src: "/gallery/3D_1.jpg",
+        alt: "Capacitacion 3D 2022",
+        caption: "Taller de Impresion 3D para ninas, ninos y jovenes del centro comunitario Aguita de la Perdiz - Ano 2022",
+    },
+    {
+        src: "/gallery/arena.png",
+        alt: "Evento ARENA DuocUC 2023",
+        caption: "Participacion en el evento ARENA organizado por DuocUC - Ano 2023",
+    },
+    {
+        src: "/gallery/robotica9.jpg",
+        alt: "Grupo Evento ARENA DuocUC 2023",
+        caption: "Equipo en el evento ARENA organizado por DuocUC - Ano 2023",
+    },
+    {
+        src: "/gallery/picto.jpg",
+        alt: "Proyecto PICTO",
+        caption: "Equipo proyecto PICTO - Ano 2023",
+    },
+    {
+        src: "/gallery/tapi.jpg",
+        alt: "Proyecto TAPI",
+        caption: "Equipo proyecto TAPI - Ano 2022",
+    },
+    {
+        src: "/gallery/chilesp.jpg",
+        alt: "Capacitacion en Impresion 3D Chile Espana",
+        caption: "Capacitacion en Impresion 3D a estudiantes de la Escuela Chile Espana - Ano 2023",
+    },
 ];
 
 export default function Gallery() {
@@ -55,6 +88,24 @@ export default function Gallery() {
     }
     function resetZoom() {
         setZoom(1);
+    }
+
+    function getZoomClass(value: number) {
+        const zoomClassByValue: Record<number, string> = {
+            0.5: "[transform:scale(0.5)]",
+            0.75: "[transform:scale(0.75)]",
+            1: "[transform:scale(1)]",
+            1.25: "[transform:scale(1.25)]",
+            1.5: "[transform:scale(1.5)]",
+            1.75: "[transform:scale(1.75)]",
+            2: "[transform:scale(2)]",
+            2.25: "[transform:scale(2.25)]",
+            2.5: "[transform:scale(2.5)]",
+            2.75: "[transform:scale(2.75)]",
+            3: "[transform:scale(3)]",
+        };
+
+        return zoomClassByValue[value] ?? "[transform:scale(1)]";
     }
 
     // refs for touch gestures
@@ -138,32 +189,22 @@ export default function Gallery() {
     return (
         <section className="mx-auto max-w-6xl px-4 py-12">
             <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-2xl font-semibold tracking-tight">Galería</h2>
 
-                <div className="flex items-center gap-2">
-                    <Button variant={view === "grid" ? "default" : "outline"} size="sm" onClick={() => setView("grid")}>
-                        Grid
-                    </Button>
-                    <Button variant={view === "list" ? "default" : "outline"} size="sm" onClick={() => setView("list")}>
-                        Lista
-                    </Button>
-                    <Button variant={view === "large" ? "default" : "outline"} size="sm" onClick={() => setView("large")}>
-                        Grande
-                    </Button>
-                </div>
             </div>
 
             <div
                 className={`grid gap-4 ${view === "list" ? "grid-cols-1" : view === "large" ? "grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3"}`}
             >
-                {images.map((src, i) => (
+                {images.map((image, i) => (
                     <button
-                        key={src}
+                        key={image.src}
                         onClick={() => open(i)}
                         onContextMenu={(e) => e.preventDefault()}
+                        aria-label={`Abrir imagen ${i + 1}`}
+                        title={`Abrir imagen ${i + 1}`}
                         className="aspect-square overflow-hidden rounded-xl border theme-border bg-blurred-card p-0"
                     >
-                        <Image src={src} alt={`Imagen ${i + 1}`} width={800} height={800} className="object-cover w-full h-full" unoptimized loading="lazy" draggable={false} />
+                        <Image src={image.src} alt={image.alt} width={800} height={800} className="object-cover w-full h-full" unoptimized loading="lazy" draggable={false} />
                     </button>
                 ))}
             </div>
@@ -171,37 +212,41 @@ export default function Gallery() {
             {openIndex !== null && (
                 <div className="fixed inset-0 z-50 grid place-items-center bg-black/70">
                     <div className="relative w-[90vw] max-w-4xl">
-                        <button onClick={close} className="absolute right-2 top-2 rounded-full bg-white/10 p-2" aria-label="Cerrar" onContextMenu={(e) => e.preventDefault()}>
+                        <button type="button" onClick={close} className="right-2 rounded-full bg-white/10 p-2" aria-label="Cerrar" title="Cerrar" onContextMenu={(e) => e.preventDefault()}>
                             <X size={20} />
                         </button>
 
                         <div className="mb-3 flex items-center justify-between gap-4">
                             <div className="flex items-center gap-2">
-                                <button onClick={prev} className="rounded-md p-2 bg-white/5" aria-label="Anterior">
+                                <button type="button" onClick={prev} className="rounded-md p-2 bg-white/5" aria-label="Anterior" title="Anterior">
                                     <ChevronLeft size={20} />
                                 </button>
-                                <button onClick={next} className="rounded-md p-2 bg-white/5" aria-label="Siguiente">
+                                <button type="button" onClick={next} className="rounded-md p-2 bg-white/5" aria-label="Siguiente" title="Siguiente">
                                     <ChevronRight size={20} />
                                 </button>
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <button onClick={zoomOut} className="rounded-md p-2 bg-white/5" aria-label="Zoom out">-</button>
-                                <button onClick={resetZoom} className="rounded-md p-2 bg-white/5" aria-label="Reset zoom">1×</button>
-                                <button onClick={zoomIn} className="rounded-md p-2 bg-white/5" aria-label="Zoom in">+</button>
+                                <button type="button" onClick={zoomOut} className="rounded-md p-2 bg-white/5" aria-label="Zoom out" title="Zoom out">-</button>
+                                <button type="button" onClick={resetZoom} className="rounded-md p-2 bg-white/5" aria-label="Reset zoom" title="Reset zoom">1×</button>
+                                <button type="button" onClick={zoomIn} className="rounded-md p-2 bg-white/5" aria-label="Zoom in" title="Zoom in">+</button>
                             </div>
                         </div>
 
                         <div className="flex items-center gap-4">
                             <div
-                                className="flex-1 bg-black rounded-lg p-4 grid place-items-center overflow-hidden"
+                                className="relative flex-1 bg-black rounded-lg p-4 grid place-items-center overflow-hidden"
                                 onTouchStart={handleTouchStart}
                                 onTouchMove={handleTouchMove}
                                 onTouchEnd={handleTouchEnd}
                                 onContextMenu={(e) => e.preventDefault()}
                             >
-                                <div style={{ transform: `scale(${zoom})`, transition: 'transform 120ms ease', willChange: 'transform' }}>
-                                    <Image src={images[openIndex]} alt={`Imagen grande ${openIndex + 1}`} width={1600} height={1200} className="object-contain max-h-[80vh]" unoptimized loading="lazy" draggable={false} />
+                                <div className={`transition-transform duration-120 will-change-transform ${getZoomClass(zoom)}`}>
+                                    <Image src={images[openIndex].src} alt={images[openIndex].alt} width={1600} height={1200} className="object-contain max-h-[80vh]" unoptimized loading="lazy" draggable={false} />
+                                </div>
+
+                                <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-black/35 p-3 backdrop-blur-md">
+                                    <p className="text-sm leading-relaxed text-white/90">{images[openIndex].caption}</p>
                                 </div>
                             </div>
                         </div>

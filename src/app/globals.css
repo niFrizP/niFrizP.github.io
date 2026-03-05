@@ -191,6 +191,26 @@ html {
 
 @layer utilities {
 
+  .interactive-screenshot {
+    height: var(--iss-height, 160px);
+    perspective: var(--iss-perspective, 800px);
+  }
+
+  .iss-tilt {
+    transform: rotateX(var(--iss-rot-x, 0deg)) rotateY(var(--iss-rot-y, 0deg));
+    transform-style: preserve-3d;
+  }
+
+  .iss-parallax {
+    transform: translate3d(var(--iss-tx, 0px), var(--iss-ty, 0px), 0) scale(1.06);
+  }
+
+  .iss-shine {
+    background: radial-gradient(240px circle at var(--iss-shine-x, 50%) var(--iss-shine-y, 50%),
+        rgba(255, 255, 255, 0.2),
+        transparent 60%);
+  }
+
   /* Status badge: controla texto, borde y fondo a través de variables */
   .status-badge {
     color: hsl(var(--status-text)) !important;

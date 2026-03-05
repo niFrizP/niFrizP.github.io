@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   src: string;
@@ -50,24 +50,30 @@ export default function InteractiveScreenshot({
   const shineX = xy.x * 100;
   const shineY = xy.y * 100;
 
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    el.style.setProperty("--iss-height", `${height}px`);
+    el.style.setProperty("--iss-perspective", "800px");
+    el.style.setProperty("--iss-rot-x", `${rotX}deg`);
+    el.style.setProperty("--iss-rot-y", `${rotY}deg`);
+    el.style.setProperty("--iss-tx", `${tx}px`);
+    el.style.setProperty("--iss-ty", `${ty}px`);
+    el.style.setProperty("--iss-shine-x", `${shineX}%`);
+    el.style.setProperty("--iss-shine-y", `${shineY}%`);
+  }, [height, rotX, rotY, tx, ty, shineX, shineY]);
+
   return (
     <div
       ref={ref}
       onMouseMove={onMouseMove}
       onMouseLeave={onLeave}
-      className={`group relative border border-white/10 ${radius} overflow-hidden`}
-      style={{
-        height,
-        perspective: 800,
-      }}
+      className={`interactive-screenshot group relative border border-white/10 ${radius} overflow-hidden`}
     >
       {/* tarjeta con tilt */}
       <div
-        className="h-full w-full will-change-transform transition-transform duration-150 ease-out"
-        style={{
-          transform: `rotateX(${rotX}deg) rotateY(${rotY}deg)`,
-          transformStyle: "preserve-3d",
-        }}
+        className="iss-tilt h-full w-full will-change-transform transition-transform duration-150 ease-out"
       >
         {/* imagen (parallax + zoom suave) */}
         <div className="absolute inset-0">
@@ -76,23 +82,17 @@ export default function InteractiveScreenshot({
             alt={alt}
             fill
             sizes="(min-width: 768px) 33vw, 100vw"
-            className="object-cover transition-transform duration-200 ease-out"
-            style={{
-              transform: `translate3d(${tx}px, ${ty}px, 0) scale(1.06)`,
-            }}
+            className="iss-parallax object-cover transition-transform duration-200 ease-out"
             priority={priority}
           />
         </div>
 
         {/* sombreado sutil para contraste */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/10 to-black/20 pointer-events-none" />
 
         {/* brillo que sigue el mouse */}
         <div
-          className="absolute inset-0 pointer-events-none transition-opacity duration-200 opacity-0 group-hover:opacity-100"
-          style={{
-            background: `radial-gradient(240px circle at ${shineX}% ${shineY}%, rgba(255,255,255,0.20), transparent 60%)`,
-          }}
+          className="iss-shine absolute inset-0 pointer-events-none transition-opacity duration-200 opacity-0 group-hover:opacity-100"
         />
 
         {/* borde interior al hover */}

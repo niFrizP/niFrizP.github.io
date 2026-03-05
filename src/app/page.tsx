@@ -144,11 +144,17 @@ export default function Page() {
       </section>
 
 
-      {/* Proyectos destacados (landing) */}
+      {/* Proyectos */}
       <ProjectsSection />
 
-      {/* Carrusel de experiencias (tutorías y proyectos sociales) */}
-      <ExperienceCarousel />
+      {/* Carrusel Galería */}
+      <section id="gallery" className="pt-20 md:scroll-mt-10">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-2xl font-semibold tracking-tight">Galería</h2>
+        </div>
+        <ExperienceCarousel />
+      </section>
+
       {/* Botón 'Ver más' que redirige a la galería */}
       <div className="mt-6 flex justify-center">
         <Link

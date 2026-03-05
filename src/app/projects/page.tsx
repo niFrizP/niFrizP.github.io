@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import ProjectCard from "@/components/ProjectCard";
@@ -6,7 +5,7 @@ import { getAllProjects } from "@/data/projects";
 
 
 export const metadata = {
-    title: "Proyectos – Nicolás FP",
+    title: "Nicolás Friz Pereira - Proyectos",
 };
 
 
@@ -19,7 +18,7 @@ export default function ProjectsIndex() {
             <div className="mb-4">
                 <h1 className="text-3xl font-semibold tracking-tight">Proyectos</h1>
                 <p className="text-sm text-muted-foreground">
-                    Selección de trabajos y side-projects.
+                    Selección de proyectos desarrollados a lo largo de mi carrera.
                 </p>
             </div>
 
@@ -35,9 +34,7 @@ export default function ProjectsIndex() {
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {data.map((p) => (
-                    <Link key={p.slug} href={`/projects/${p.slug}`} className="block">
-                        <ProjectCard project={p} />
-                    </Link>
+                    <ProjectCard key={p.slug} project={p} />
                 ))}
             </div>
         </main>

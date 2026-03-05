@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
@@ -9,7 +8,9 @@ import { Separator } from "@/components/ui/separator";
 import type { Project } from "@/data/projects";
 import InteractiveScreenshot from "@/components/InteractiveScreenshot";
 
-type Props = { project: Project };
+type Props = {
+  project: Project;
+};
 
 export default function ProjectCard({ project }: Props) {
   return (
@@ -51,6 +52,7 @@ export default function ProjectCard({ project }: Props) {
           <Link
             href={project.website}
             target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1 rounded-lg border border-white/10 px-2 py-1 text-sm hover:bg-white/5"
             aria-label={`Sitio web de ${project.title}`}
           >
@@ -61,6 +63,7 @@ export default function ProjectCard({ project }: Props) {
           <Link
             href={project.repo}
             target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1 rounded-lg border border-white/10 px-2 py-1 text-sm hover:bg-white/5"
             aria-label={`Código fuente de ${project.title}`}
           >
@@ -71,6 +74,7 @@ export default function ProjectCard({ project }: Props) {
           <Link
             href={project.demo}
             target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1 rounded-lg border border-white/10 px-2 py-1 text-sm hover:bg-white/5"
             aria-label={`Demo de ${project.title}`}
           >

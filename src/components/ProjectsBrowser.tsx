@@ -1,10 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import { X } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { Project } from "@/data/projects";
 
@@ -99,9 +97,7 @@ export default function ProjectsBrowser({ projects, allTags }: Props) {
             {/* Grid */}
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {filtered.map((p) => (
-                    <Link key={p.slug} href={`/projects/${p.slug}`} className="block">
-                        <ProjectCard project={p} />
-                    </Link>
+                    <ProjectCard key={p.slug} project={p} />
                 ))}
             </div>
         </>

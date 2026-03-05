@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 const links = [
   { href: "/#about", label: "Sobre mí" },
   { href: "/#projects", label: "Proyectos" },
+  { href: "/#gallery", label: "Galería" },
   { href: "/#experience", label: "Experiencia" },
   { href: "/#cv", label: "CV" },
   { href: "/#contact", label: "Contacto" },
@@ -58,34 +59,22 @@ export function Navbar() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="
+                  className={`
                       group relative inline-flex items-center
                       transition-all duration-200
                       hover:-translate-y-px hover:scale-[1.015]
-                    "
-                  style={{
-                    color: mounted
-                      ? isDark
-                        ? "rgb(244 244 245)" // zinc-100
-                        : "rgb(24 24 27)"    // zinc-900
-                      : "rgb(24 24 27)",
-                  }}
+                      ${mounted ? (isDark ? "text-zinc-100" : "text-zinc-900") : "text-zinc-900"}
+                    `}
                 >
                   {l.label}
                   <span
-                    className="
+                    className={`
                         pointer-events-none absolute left-0 -bottom-1 h-[1.5px] w-full
                         scale-x-0 origin-left
                         transition-transform duration-200
                         group-hover:scale-x-100
-                      "
-                    style={{
-                      backgroundColor: mounted
-                        ? isDark
-                          ? "rgba(52, 211, 153, 0.8)" // emerald-400
-                          : "rgb(82, 82, 91)"          // zinc-600
-                        : "rgb(82, 82, 91)",
-                    }}
+                        ${mounted ? (isDark ? "bg-emerald-400/80" : "bg-zinc-600") : "bg-zinc-600"}
+                      `}
                   />
                 </Link>
               </li>
