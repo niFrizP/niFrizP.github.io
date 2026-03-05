@@ -8,27 +8,27 @@ import Script from "next/script";
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nifrizp.github.io"),
-  title: "niFrizP - Portafolio",
-  description: "Ingeniero Informático",
+  metadataBase: new URL("https://nifrizp.dev"),
+  title: "Nicolás FP - Desarrollo Web Full Stack",
+  description: "Ingeniero Informático especializado en desarrollo web, soluciones escalables y en optimización de rendimiento y seguridad. Desarrollo con Next.js, JavaScript y PHP para crear APIs y aplicaciones rápidas y seguras.",
   openGraph: {
     type: "website",
     url: "/",
-    title: "niFrizP - Portafolio",
-    description: "Ingeniero Informático",
+    title: "Nicolás FP - Desarrollo Web Full Stack",
+    description: "Ingeniero Informático especializado en desarrollo web, soluciones escalables y en optimización de rendimiento y seguridad. Desarrollo con Next.js, JavaScript y PHP para crear APIs y aplicaciones rápidas y seguras.",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "niFrizP - Portafolio",
+        alt: "Nicolás FP - Portafolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "niFrizP - Portafolio",
-    description: "Ingeniero Informático",
+    title: "Nicolás FP - Desarrollo Web Full Stack",
+    description: "Ingeniero Informático especializado en desarrollo web, soluciones escalables y en optimización de rendimiento y seguridad. Desarrollo con Next.js, JavaScript y PHP para crear APIs y aplicaciones rápidas y seguras.",
     images: ["/og.png"],
   },
   icons: {
@@ -69,6 +69,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TG8JDLC9');`,
           }}
         />
+        {/* Meta para SEO mejorado */}
+        <meta name="description" content="Ingeniero Informático: desarrollo web y software con Next.js, JavaScript y PHP. Diseño APIs, bases de datos y experiencias digitales rápidas y accesibles." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nifrizp.dev/" />
+        {/* JSON-LD: WebSite + WebPage + Person */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Person",
+                "@id": "https://nifrizp.dev/#person",
+                "name": "Nicolás FP",
+                "url": "https://nifrizp.dev/",
+                "sameAs": [
+                  "https://github.com/niFrizP",
+                  "https://www.linkedin.com/in/nicolasfrizpereira/"
+                ],
+                "jobTitle": "Ingeniero Informático",
+                "description": "Ingeniero Informático especializado en desarrollo web, soluciones escalables y en optimización de rendimiento y seguridad.",
+                "image": "https://nifrizp.dev/apple-touch-icon.png"
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://nifrizp.dev/#website",
+                "url": "https://nifrizp.dev/",
+                "name": "Nicolás FP - Desarrollo Web Full Stack",
+                "description": "Ingeniero Informático especializado en desarrollo web, soluciones escalables y en optimización de rendimiento y seguridad.",
+                "publisher": { "@id": "https://nifrizp.dev/#person" },
+                "inLanguage": "es-ES"
+              },
+              {
+                "@type": "WebPage",
+                "@id": "https://nifrizp.dev/#webpage",
+                "url": "https://nifrizp.dev/",
+                "name": "Nicolás FP - Desarrollo Web Full Stack",
+                "isPartOf": { "@id": "https://nifrizp.dev/#website" },
+                "primaryImageOfPage": { "@id": "https://nifrizp.dev/og.png" },
+                "description": "Ingeniero Informático especializado en desarrollo web Full Stack, soluciones escalables y en optimización de rendimiento y seguridad."
+              }
+            ]
+          })
+        }} />
         <meta name="google-site-verification" content="TwICpiGQi1WwokZsvzzoJ0dXi9ZXJYUSoL2La63J528" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="preload" as="image" href="/bg-base.jpg" />

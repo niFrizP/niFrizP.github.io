@@ -14,6 +14,18 @@ export type Project = {
 
 export const projects: Project[] = [
     {
+        slug: "teqmed-2",
+        title: "TEQMED SpA (Rebranding)",
+        summary:
+            "Implementación de un nuevo diseño a corde al rebranding de la empresa TEQMED SpA.",
+        tags: ["Wordpress", "Figma", "HTML", "CSS"],
+        website: "https://teqmed.cl",
+        image: "thumbs/teqmed2.png",
+        year: 2025,
+
+    },
+
+    {
         slug: "treepower",
         title: "TreePower",
         summary:
