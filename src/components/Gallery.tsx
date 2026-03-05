@@ -65,14 +65,15 @@ export default function Gallery() {
     const initialZoomRef = useRef(1);
     const lastTapRef = useRef<number | null>(null);
 
-    function getDist(touches: TouchList) {
+    type TouchPointLike = { clientX: number; clientY: number };
+    type TouchListLike = { length: number;[index: number]: TouchPointLike };
+
+    const getDist = (touches: TouchListLike): number => {
         if (touches.length < 2) return 0;
-        const a = touches[0];
-        const b = touches[1];
-        const dx = a.clientX - b.clientX;
-        const dy = a.clientY - b.clientY;
+        const dx = touches[0].clientX - touches[1].clientX;
+        const dy = touches[0].clientY - touches[1].clientY;
         return Math.hypot(dx, dy);
-    }
+    };
 
     function handleTouchStart(e: React.TouchEvent) {
         const t = e.touches;
