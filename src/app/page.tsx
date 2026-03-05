@@ -144,8 +144,7 @@ export default function Page() {
 
       {/* Proyectos destacados (landing) */}
       <ProjectsSection />
-
-
+      
       {/* Experiencia */}
       <section id="experience" className="mx-auto max-w-6xl px-4 py-20">
         <h2 className="text-2xl font-semibold tracking-tight mb-8">Experiencia</h2>
@@ -161,7 +160,7 @@ export default function Page() {
                 <p className="text-sm theme-text">Concepción, Bio Bio, Chile · Actualidad</p>
               </div>
               <strong>
-                <p className="text-sm theme-text mt-2 md:mt-0">Feb 2025 – Dic 2025 · 10 meses</p>
+                <p className="text-sm theme-text mt-2 md:mt-0">feb 2025 – dic 2025 · 10 meses</p>
               </strong>
             </div>
             <p className="mt-3 theme-text">
@@ -178,11 +177,27 @@ export default function Page() {
                 <p className="text-sm theme-text">IBM · Contrato de prácticas</p>
                 <p className="text-sm theme-text">Región Metropolitana de Santiago, Chile · Híbrido</p>
               </div>
-              <strong><p className="text-sm theme-text mt-2 md:mt-0">Ago 2024 – Feb 2025 · 7 meses</p></strong>
+              <strong><p className="text-sm theme-text mt-2 md:mt-0">ago 2024 – feb 2025 · 6 meses</p></strong>
             </div>
             <p className="mt-3 theme-text">
               Participación en el programa de formación de IBM centrado en desarrollo de software,
               tecnologías cloud y buenas prácticas de ingeniería.
+            </p>
+          </div>
+
+          {/* Inclusteam Duoc UC */}
+          <div className="glass-card p-6 backdrop-blur-xl border theme-border bg-white/30 hover:bg-zinc-100 text-zinc-700 hover:text-zinc-900 dark:bg-white/5 dark:hover:bg-white/10 dark:text-zinc-200">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+              <div>
+                <BrandLogo company="DuocUC" domain="duoc.cl" />
+                <h3 className="text-lg font-medium theme-text">Tutor de Talleres de Impresión 3D en Proyecto "Inclusteam"</h3>
+                <p className="text-sm theme-text">Duoc UC</p>
+                <p className="text-sm theme-text">Concepción, Bio Bio, Chile · Presencial</p>
+              </div>
+              <strong><p className="text-sm theme-text mt-2 md:mt-0">mar 2023 – mar 2024 · 1 año</p></strong>
+            </div>
+            <p className="mt-3 theme-text">
+              Realización de talleres para estudiantes de educación básica en diseño e impresión 3D en proyecto de investigación aplicada e innovación "Inclusteam".
             </p>
           </div>
 
@@ -191,15 +206,15 @@ export default function Page() {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
               <div>
                 <BrandLogo company="CITT Duoc UC" domain="duoc.cl" />
-                <h3 className="text-lg font-medium theme-text">Líder Track Impresión 3D</h3>
+                <h3 className="text-lg font-medium theme-text">Líder Track de Impresión 3D </h3>
                 <p className="text-sm theme-text">CITT Duoc UC · Jornada parcial</p>
                 <p className="text-sm theme-text">Concepción, Bio Bio, Chile · Presencial</p>
               </div>
               <strong>
-                <p className="text-sm theme-text mt-2 md:mt-0">Abr 2022 – Ago 2024 · 2 años 5 meses</p></strong>
+                <p className="text-sm theme-text mt-2 md:mt-0">abr 2022 – ago 2024 · 2 años 5 meses</p></strong>
             </div>
             <p className="mt-3 theme-text">
-              Coordinación del área de impresión y modelado 3D. Creación de prototipos y liderazgo de proyectos estudiantiles y académicos.
+              Coordinación del área de impresión y modelado 3D, planificación y realización de talleres para estudiantes de educación básica, media y superior, además de la creación de prototipos, liderazgo de proyectos estudiantiles dentro del Centro Innovación y Transferencia Tecnológica de DuocUC.
             </p>
           </div>
 
@@ -213,7 +228,7 @@ export default function Page() {
                 <p className="text-sm theme-text">Concepción, Bio Bio, Chile · Presencial</p>
               </div>
               <strong>
-                <p className="text-sm theme-text mt-2 md:mt-0">Ago 2022 – Jul 2024 · 2 años</p>
+                <p className="text-sm theme-text mt-2 md:mt-0">ago 2022 – jul 2024 · 2 años</p>
               </strong>
             </div>
             <p className="mt-3 theme-text">
@@ -221,6 +236,7 @@ export default function Page() {
               Enfoque en optimización de procesos internos y automatización.
             </p>
           </div>
+
         </div>
       </section>
 
@@ -326,6 +342,6 @@ export default function Page() {
           </p>
         </div>
       </footer>
-    </main>
+    </main >
   );
 }
