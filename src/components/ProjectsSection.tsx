@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,7 +33,9 @@ export default function ProjectsSection() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <ProjectCard project={p} />
+              <Link href={`/projects/${p.slug}`} className="block">
+                <ProjectCard project={p} />
+              </Link>
             </motion.div>
           ))}
         </AnimatePresence>

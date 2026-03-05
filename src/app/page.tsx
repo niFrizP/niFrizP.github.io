@@ -8,6 +8,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import { Mail, ChevronRight, Linkedin, Github } from "lucide-react";
 import CompanyLogo from "@/components/CompanyLogo";
 import HeroAnimated from "@/components/HeroAnimated";
+import ExperienceCarousel from "@/components/ExperienceCarousel";
 const PK = process.env.NEXT_PUBLIC_LOGO_DEV_PK;
 
 function BrandLogo({ company, domain }: { company: string; domain: string }) {
@@ -139,12 +140,27 @@ export default function Page() {
             </div>
           </div>
         </div>
+
+        {/* Carrusel de experiencias (tutorías y proyectos sociales) */}
+        <ExperienceCarousel />
+
       </section>
 
 
       {/* Proyectos destacados (landing) */}
       <ProjectsSection />
-      
+
+      {/* Botón 'Ver más' que redirige a la galería */}
+      <div className="mt-6 flex justify-center">
+        <Link
+          href="/gallery"
+          className="inline-flex items-center gap-3 rounded-xl border border-white/1 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition bg-blur-lg backdrop-blur-md"
+        >
+          Ver galería
+          <ChevronRight className="transition-transform" size={16} />
+        </Link>
+      </div>
+
       {/* Experiencia */}
       <section id="experience" className="mx-auto max-w-6xl px-4 py-20">
         <h2 className="text-2xl font-semibold tracking-tight mb-8">Experiencia</h2>
