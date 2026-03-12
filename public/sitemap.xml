@@ -8,17 +8,22 @@
 
 
 <url>
-  <loc>https://nifrizp.github.io/</loc>
+  <loc>https://nifrizp.dev/</loc>
   <lastmod>2025-11-04T02:15:35+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://nifrizp.github.io/cv/nicolas-friz.pdf</loc>
+  <loc>https://nifrizp.dev/cv/nicolas-friz.pdf</loc>
   <lastmod>2025-11-04T02:15:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://nifrizp.github.io/cv/CV_Nicol%C3%A1s_Friz.pdf</loc>
+  <loc>https://nifrizp.dev/cv/CV_Nicol%C3%A1s_Friz.pdf</loc>
+  <lastmod>2025-11-04T02:15:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nifrizp.dev/gallery/</loc>
   <lastmod>2025-11-04T02:15:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
